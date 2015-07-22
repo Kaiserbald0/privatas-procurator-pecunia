@@ -1,0 +1,43 @@
+{
+  "name": "private-money-manager",
+  "version": "0.0.1",
+  "description": "A private money manager",
+  "main": "src/app.js",
+  "dependencies": {
+    "flux": "2.0.0",
+    "moment": "2.10.3",
+    "numeral": "1.5.3",
+    "react": "0.13.x",
+    "react-bootstrap": "0.23.x",
+    "react-datepicker": "^0.8.0",
+    "react-router": "0.13.x",
+    "sha1": "^1.1.1",
+    "underscore": "1.8.3 "
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "envify": "~3.0.0",
+    "jest-cli": "0.4.0",
+    "react-tools": "0.12.0",
+    "reactify": "0.15",
+    "watchify": "~2.1.0"
+  },
+  "jest": {
+    "scriptPreprocessor": "./preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "./node_modules/react"
+    ]
+  },
+  "scripts": {
+    "start": "watchify -o www/js/bundle.js -v -d .",
+    "build": "browserify . | uglifyjs -cm > www/js/bundle.min.js",
+    "test": "jest"
+  },
+  "author": "KaiserBald0 <kaiserbald0@protonmail.ch>",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  }
+}
